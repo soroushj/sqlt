@@ -18,7 +18,9 @@ func TestNullUUIDScan(t *testing.T) {
 		{"", true, NullUUID{UUID: uuid.UUID{}, Valid: false}},
 		{make([]byte, 0), true, NullUUID{UUID: uuid.UUID{}, Valid: false}},
 		{su, true, NullUUID{UUID: u, Valid: true}},
+		{"1", false, NullUUID{}},
 		{[]byte(su), true, NullUUID{UUID: u, Valid: true}},
+		{[]byte("1"), false, NullUUID{}},
 		{u[:], true, NullUUID{UUID: u, Valid: true}},
 		{1, false, NullUUID{}},
 	}

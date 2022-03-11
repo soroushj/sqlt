@@ -10,8 +10,8 @@ import (
 // NullRawMessage implements the sql.Scanner interface so
 // it can be used as a scan destination.
 type NullRawMessage struct {
-	RawMessage json.RawMessage
-	Valid      bool // Valid is true if RawMessage is not NULL
+	RawMessage json.RawMessage `json:"raw_message"`
+	Valid      bool            `json:"valid"` // Valid is true if RawMessage is not NULL
 }
 
 // Scan implements the sql.Scanner interface.

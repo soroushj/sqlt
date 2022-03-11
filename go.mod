@@ -1,4 +1,4 @@
-module github.com/soroushj/sqlt
+module github.com/pranav12verma/sqlt
 
 go 1.15
 

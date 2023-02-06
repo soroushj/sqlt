@@ -10,6 +10,8 @@ import (
 // NullUUID represents a UUID that may be null.
 // NullUUID implements the sql.Scanner interface so
 // it can be used as a scan destination.
+//
+// Note: [github.com/google/uuid.NullUUID] is available since v1.3.0.
 type NullUUID struct {
 	UUID  uuid.UUID
 	Valid bool // Valid is true if UUID is not NULL

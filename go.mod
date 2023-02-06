@@ -1,5 +1,5 @@
 module github.com/soroushj/sqlt
 
-go 1.15
+go 1.20
 
-require github.com/google/uuid v1.1.2
+require github.com/google/uuid v1.3.0

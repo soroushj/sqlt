@@ -7,17 +7,18 @@ import (
 	"github.com/google/uuid"
 )
 
-// NullUUID represents a UUID that may be null.
-// NullUUID implements the sql.Scanner interface so
+// NullUUID represents a [github.com/google/uuid.UUID] that may be null.
+// NullUUID implements the [database/sql.Scanner] interface so
 // it can be used as a scan destination.
 //
-// Note: [github.com/google/uuid.NullUUID] is available since v1.3.0.
+// Note: This type should not be used in new code.
+// [github.com/google/uuid.NullUUID] is available since v1.3.0.
 type NullUUID struct {
 	UUID  uuid.UUID
 	Valid bool // Valid is true if UUID is not NULL
 }
 
-// Scan implements the sql.Scanner interface.
+// Scan implements the [database/sql.Scanner] interface.
 func (nu *NullUUID) Scan(value interface{}) error {
 	switch value := value.(type) {
 	case nil:
@@ -58,7 +59,7 @@ func (nu *NullUUID) Scan(value interface{}) error {
 	return nil
 }
 
-// Value implements the driver.Valuer interface.
+// Value implements the [database/sql/driver.Valuer] interface.
 func (nu NullUUID) Value() (driver.Value, error) {
 	if !nu.Valid {
 		return nil, nil
